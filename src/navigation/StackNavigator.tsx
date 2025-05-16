@@ -1,20 +1,21 @@
-import React from 'react'; // importa o React, necessário para usar JSX e componentes  
-import { createNativeStackNavigator } from '@react-navigation/native-stack'; // importa a função para criar um navigator em pilha  
-import index from '../screens/index'; // importa o componente da tela Home  
-import login from '../screens/login'; // importa o componente da tela de login  
+// src/navigation/StackNavigator.tsx
+import React from 'react';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import index from '../screens/index';
+import login from '../screens/login';
 
-export type RootStackParamList = { // define os nomes de rotas e seus parâmetros  
-  Home: undefined; // rota "Home" não recebe parâmetros  
-  Details: { itemId: number }; // rota "Details" espera um objeto com itemId do tipo number  
-};  
+export type RootStackParamList = {
+  Home: undefined;
+  Details: { itemId: number }; // exemplo com parâmetro
+};
 
-const Stack = createNativeStackNavigator<RootStackParamList>(); // cria o Navigator tipado com as rotas definidas  
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
-export default function StackNavigator() { // componente que encapsula toda a navegação  
-  return (  
-    <Stack.Navigator initialRouteName="Home"> {/* define a rota inicial ao abrir o app  */}
-      <Stack.Screen name="Home" component={index} options={{ headerShown: false }}/> {/* registra a tela Home sem header  */}
-      <Stack.Screen name="Details" component={login} options={{ headerShown: false }} /> {/* registra a tela Details (login) sem header  */}
-    </Stack.Navigator>  
-  );  
-}  
+export default function StackNavigator() {
+  return (
+    <Stack.Navigator initialRouteName="Home">
+      <Stack.Screen name="Home" component={index} options={{ headerShown: false }}/>
+      <Stack.Screen name="Details" component={login} options={{ headerShown: false }} />
+    </Stack.Navigator>
+  );
+}
