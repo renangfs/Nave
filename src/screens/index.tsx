@@ -4,7 +4,7 @@ import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../navigation/StackNavigator';
 import styles from './stylesindex';
 
-type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
+type Props = NativeStackScreenProps<RootStackParamList, 'Index'>;
 
 export default function Index({ navigation }: Props) {
   return (
@@ -27,7 +27,7 @@ export default function Index({ navigation }: Props) {
           <View style={{ marginBottom: 16 }}>
             <TouchableOpacity
               style={styles.adminButton}
-              onPress={() => navigation.navigate('Details', { itemId: 42 })}
+              onPress={() => navigation.navigate('Login', { itemId: 42 })}
             >
               <Text style={styles.buttonText}>Entrar como administrador</Text>
             </TouchableOpacity>

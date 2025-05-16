@@ -4,7 +4,7 @@ import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../navigation/StackNavigator';
 import styles from '../screens/styleslogin';
 
-type Props = NativeStackScreenProps<RootStackParamList, 'Details'>;
+type Props = NativeStackScreenProps<RootStackParamList, 'Login'>;
 
 export default function Login({ route }: Props) {
   const { itemId } = route.params;
