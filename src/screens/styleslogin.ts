@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   logo: {
-    marginTop: 100,
+    marginTop: 40,
     width: 200,
     height: 200,
   },

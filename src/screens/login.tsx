@@ -1,12 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity,Image } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../navigation/StackNavigator';
 import styles from '../screens/styleslogin';
 
+
 type Props = NativeStackScreenProps<RootStackParamList, 'Login'>;
 
 export default function Login({ route }: Props) {
+
+  // Variáveis para armazenar login e senha
+  const [login, setLogin] = useState('');
+  const [senha, setSenha] = useState('');
+
+
+  // Função para mostrar os dados no console
+  const handleLogin = () => {
+    console.log('Login:', login);
+    console.log('Senha:', senha);
+    };
+
   const { itemId } = route.params;
   return (
     <View style={styles.container}>
@@ -24,6 +37,8 @@ export default function Login({ route }: Props) {
         style={styles.input}
         placeholder="Digite seu nome"
         placeholderTextColor="#999"
+        value={login}
+        onChangeText={setLogin}
       />
 
       <Text style={styles.label}>Senha do administrador</Text>
@@ -32,15 +47,18 @@ export default function Login({ route }: Props) {
         placeholder="Digite sua senha"
         secureTextEntry
         placeholderTextColor="#999"
+        value={senha}
+        onChangeText={setSenha}
       />
 
       <TouchableOpacity>
         <Text style={styles.forgot}>Esqueci minha senha</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity style={styles.button} onPress={handleLogin}>
         <Text style={styles.buttonText}>Entrar</Text>
       </TouchableOpacity>
+
 
       <TouchableOpacity>
         <Text style={styles.register}>Cadastrar administrador</Text>
